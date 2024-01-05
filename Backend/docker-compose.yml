@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "Postgres@2024"
+    ports:
+      - "5432:5432"
+    
