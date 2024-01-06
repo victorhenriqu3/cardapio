@@ -18,10 +18,17 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 public class Food {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String title;
   private String image;
   private String description;
   private Double price;
+
+  public Food(FoodRequestDTO data) {
+    this.image = data.image();
+    this.title = data.title();
+    this.description = data.description();
+    this.price = data.price();
+  }
 }
