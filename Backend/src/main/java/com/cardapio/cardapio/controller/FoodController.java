@@ -1,6 +1,7 @@
 package com.cardapio.cardapio.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,23 @@ public class FoodController {
   public List<FoodResponseDTO> getAll() {
     List<FoodResponseDTO> foodList = repository.findAll().stream().map(FoodResponseDTO::new).toList();
     return foodList;
+  }
+
+  @CrossOrigin(origins = "*", allowedHeaders = "*")
+  @GetMapping("/{id}")
+  public ResponseEntity<FoodResponseDTO> getById(@PathVariable("id") long id) {
+    try {
+      Optional<Food> foodData = repository.findById(id);
+      if (foodData.isPresent()) {
+        FoodResponseDTO food = new FoodResponseDTO(foodData.get());
+        return new ResponseEntity<>(food, HttpStatus.OK);
+      } else {
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+      }
+
+    } catch (Exception e) {
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
   @CrossOrigin(origins = "*", allowedHeaders = "*")

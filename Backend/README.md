@@ -50,7 +50,7 @@ Comida:
 - [ ] Editar Comida:
   - Corpo da Requisição: id,title,description,image,price
   - Corpo da Resposta: Http Status
-- [ ] Visualizar detalhes da Comida:
+- [x] Visualizar detalhes da Comida:
   - Corpo da Requisição: id
   - Corpo da Resposta: id,title,description,image,price
 - [x] Deletar Comida:
