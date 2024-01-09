@@ -35,10 +35,15 @@ public class FoodController {
 
   @CrossOrigin(origins = "*", allowedHeaders = "*")
   @PostMapping
-  public void saveFood(@RequestBody FoodRequestDTO data) {
-    Food foodData = new Food(data);
-    repository.save(foodData);
-    return;
+  public ResponseEntity<HttpStatus> saveFood(@RequestBody FoodRequestDTO data) {
+    try {
+      Food foodData = new Food(data);
+      repository.save(foodData);
+      return new ResponseEntity<>(HttpStatus.CREATED);
+    } catch (Exception e) {
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
   }
 
   @CrossOrigin(origins = "*", allowedHeaders = "*")
