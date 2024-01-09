@@ -29,9 +29,14 @@ public class FoodController {
 
   @CrossOrigin(origins = "*", allowedHeaders = "*")
   @GetMapping
-  public List<FoodResponseDTO> getAll() {
-    List<FoodResponseDTO> foodList = repository.findAll().stream().map(FoodResponseDTO::new).toList();
-    return foodList;
+  public ResponseEntity<List<FoodResponseDTO>> getAll() {
+    try {
+      List<FoodResponseDTO> foodList = repository.findAll().stream().map(FoodResponseDTO::new).toList();
+      return new ResponseEntity<>(foodList, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
   }
 
   @CrossOrigin(origins = "*", allowedHeaders = "*")
