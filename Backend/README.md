@@ -39,51 +39,23 @@ docker-compose ps
 
 A aplicação deve ser capaz de realizar as seguintes funcionalidades:
 
-<h3>Comida :</h3>
-  <ul>
-    <li>
-    Visualiazar Todas as Comidas:
-    <ul>
-        <li>
-        Corpo da Requisição: <em>title,description,image,price</em>
-        </li>
-        <li>
-        Corpo da Resposta: Array de Objetos( <em>id,title,description,image,price</em> )
-        </li>
-      </ul>
-    </li>
-    <li>
-    Criar Comida:
-      <ul>
-        <li>
-        Corpo da Requisição: <em>title,description,image,price</em>
-        </li>
-        <li>
-        Corpo da Resposta: <em>Http Status</em>
-        </li>
-      </ul>
-    </li>
-    <li>
-    Editar Comida:
-      <ul>
-        <li>Corpo da Requisição: <em>id,title,description,image,price</em></li>
-        <li>Corpo da Resposta: <em>Http Status</em></li>
-      </ul>
-    </li>  
-    <li>
-    Visualizar detalhes da Comida:
-      <ul>
-        <li>Corpo da Requisição: <em>id</em></li>
-        <li>Corpo da Resposta: <em>id,title,description,image,price</em></li>
-      </ul>    
-    </li>
-    <li>Deletar cadastro:
-      <ul>
-        <li>Corpo da Requisição: <em>id</em></li>
-        <li>Corpo da Resposta: <em>Http Status</em></li>
-      </ul>
-    </li>
-  </ul>
+Comida:
+
+- [x] Visualizar Todas as Comidas:
+  - Corpo da Requisição: title,description,image,price
+  - Corpo da Resposta: Array de Objetos( id,title,description,image,price )
+- [x] Criar Comida:
+  - Corpo da Requisição: title,description,image,price
+  - Corpo da Resposta: Http Status
+- [ ] Editar Comida:
+  - Corpo da Requisição: id,title,description,image,price
+  - Corpo da Resposta: Http Status
+- [ ] Visualizar detalhes da Comida:
+  - Corpo da Requisição: id
+  - Corpo da Resposta: id,title,description,image,price
+- [x] Deletar Comida:
+  - Corpo da Requisição: id
+  - Corpo da Resposta: Http Status
 
 <hr>
 <h3>Autor</h3>
